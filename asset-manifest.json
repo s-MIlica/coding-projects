@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/coffee-timer/static/css/main.146d4b8c.chunk.css",
+    "main.js": "/coffee-timer/static/js/main.71649bc3.chunk.js",
+    "main.js.map": "/coffee-timer/static/js/main.71649bc3.chunk.js.map",
+    "runtime-main.js": "/coffee-timer/static/js/runtime-main.b00f054e.js",
+    "runtime-main.js.map": "/coffee-timer/static/js/runtime-main.b00f054e.js.map",
+    "static/js/2.c4a3f806.chunk.js": "/coffee-timer/static/js/2.c4a3f806.chunk.js",
+    "static/js/2.c4a3f806.chunk.js.map": "/coffee-timer/static/js/2.c4a3f806.chunk.js.map",
+    "index.html": "/coffee-timer/index.html",
+    "precache-manifest.4e2a5a4b86104836263a5d5b7e02e56a.js": "/coffee-timer/precache-manifest.4e2a5a4b86104836263a5d5b7e02e56a.js",
+    "service-worker.js": "/coffee-timer/service-worker.js",
+    "static/css/main.146d4b8c.chunk.css.map": "/coffee-timer/static/css/main.146d4b8c.chunk.css.map",
+    "static/js/2.c4a3f806.chunk.js.LICENSE": "/coffee-timer/static/js/2.c4a3f806.chunk.js.LICENSE",
+    "static/media/autotune.mp3": "/coffee-timer/static/media/autotune.76af347e.mp3"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.b00f054e.js",
+    "static/js/2.c4a3f806.chunk.js",
+    "static/css/main.146d4b8c.chunk.css",
+    "static/js/main.71649bc3.chunk.js"
+  ]
+}
