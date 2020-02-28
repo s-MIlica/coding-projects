@@ -1,22 +1,15 @@
-import { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import Sound from 'react-sound';
+import soundfile from '../assests/autotune.mp3'
 
-function Alarm({url}) {
-    const [audio, setAudio] = useState(new Audio(url))
-    const [play, setPlay] = useState(false);
+function Alarm() {
+    // const [playStatus, setPlayStatus] = useState('STOP')
 
-    function togglePlay() {
-        setPlay(!play);
-    }
 
-    useEffect(() => {
-        play? audio.load() : audio.pause() && audio.currentTime(0)
-    }, [play, audio])
-
-    useEffect(() => {
-        return () => {audio.addEventListener('ended', setPlay(false))}
-    }, [audio])
-
-    return [play, togglePlay];
+    return (
+        <Sound url={soundfile} 
+        playStatus={Sound.status.PLAYING}/>
+    )
 }
 
 export default Alarm;

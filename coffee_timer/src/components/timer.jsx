@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import Button from './button';
 import Alarm from './alarm';
-// import Sound from 'react-sound';
 
 function Timer({url}) {
     const [minutes, setMinutes] = useState(0);
     const [seconds, setSeconds] = useState(0);
     const [isTimerOn, setIsTimerOn] = useState(false);
-    // const [status, setStatus] = useState('STOP')
-    const [play, togglePlay] = new Alarm(url)
+    const [playStatus, setPlayStatus] = useState('STOP')
+    // const [play, togglePlay] = new Alarm(url)
     console.log('is timer on?', isTimerOn);
 
     function toggle() {
@@ -17,8 +16,8 @@ function Timer({url}) {
 
     function stop() {
         if (isTimerOn) {
-            // setStatus('STOP');
-            togglePlay()
+            setPlayStatus('STOP');
+            // togglePlay()
             setMinutes(0);
             setSeconds(0);
             toggle();
@@ -42,12 +41,14 @@ function Timer({url}) {
                 } else if (minutes > 0 && seconds > 0) {
                     setSeconds(s => seconds - 1);
                 } else if (minutes === 0 && seconds === 0) {
-                    // setStatus('PLAYING')
-                    togglePlay();
+                    setPlayStatus('PLAYING')
+                    // togglePlay();
                     clearInterval(tikTok);
                     setMinutes(0);
                     setSeconds(0);
                     setIsTimerOn(false);
+                    alert('COFFEE IS READY!!!')
+                    return ( <Alarm />)
                 }
             }, 1000);
         } else if (!isTimerOn && (minutes > 0 || seconds > 0)) {
@@ -55,7 +56,7 @@ function Timer({url}) {
         }
 
         return () => clearInterval(tikTok);
-    }, [isTimerOn, seconds, minutes, togglePlay])
+    }, [isTimerOn, seconds, minutes])
 
     return (
         <>
@@ -73,7 +74,9 @@ function Timer({url}) {
             <Button btn_function={toggle} btn_label={isTimerOn? 'PAUSE' : 'START'}/>
             <Button btn_function={stop} btn_label='STOP' style={isTimerOn? {display:"block"} : {display:"none"}}/>
             <Button btn_function={addOneMinute} btn_label="+1'"/>
-            {/* <Sound url="https://www.youtube.com/watch?v=zUwEIt9ez7M" playStatus={...status}/> */}
+            {/* <audio>
+                <source src={url} samesite="Secure"></source>
+            </audio> */}
             {/* <div className="message-div" style={play? {display: "block"} : {display:"none"}}>
                 <h3 id="message-id">to turn off the music press STOP button</h3>
             </div> */}
