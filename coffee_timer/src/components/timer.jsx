@@ -1,13 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import Button from './button';
-import Alarm from './alarm';
 
-function Timer({url}) {
+function Timer() {
     const [minutes, setMinutes] = useState(0);
     const [seconds, setSeconds] = useState(0);
     const [isTimerOn, setIsTimerOn] = useState(false);
-    const [playStatus, setPlayStatus] = useState('STOP')
-    // const [play, togglePlay] = new Alarm(url)
     console.log('is timer on?', isTimerOn);
 
     function toggle() {
@@ -16,8 +13,6 @@ function Timer({url}) {
 
     function stop() {
         if (isTimerOn) {
-            setPlayStatus('STOP');
-            // togglePlay()
             setMinutes(0);
             setSeconds(0);
             toggle();
@@ -30,25 +25,24 @@ function Timer({url}) {
 
     useEffect(() => {
         let tikTok = null;
+        const audioEl = document.getElementsByClassName("audio-element")[0]
         
         if (isTimerOn) {
             tikTok = setInterval(() => {
                 if (seconds < 60 && seconds > 0 && minutes === 0) {
-                    setSeconds(s => seconds - 1);
+                    setSeconds(() => seconds - 1);
                 } else if (minutes > 0 && seconds === 0 ) {
-                    setMinutes(m => minutes - 1);
+                    setMinutes(() => minutes - 1);
                     setSeconds(59);
                 } else if (minutes > 0 && seconds > 0) {
-                    setSeconds(s => seconds - 1);
+                    setSeconds(() => seconds - 1);
                 } else if (minutes === 0 && seconds === 0) {
-                    setPlayStatus('PLAYING')
-                    // togglePlay();
                     clearInterval(tikTok);
                     setMinutes(0);
                     setSeconds(0);
                     setIsTimerOn(false);
+                    audioEl.play();
                     alert('COFFEE IS READY!!!')
-                    return ( <Alarm />)
                 }
             }, 1000);
         } else if (!isTimerOn && (minutes > 0 || seconds > 0)) {
@@ -60,9 +54,14 @@ function Timer({url}) {
 
     return (
         <>
+            {isTimerOn?
+            <h3 id="h3">
+                YOUR TIME IS RUNNING!
+            </h3>
+            :
             <h3 id="h3">
                 SET YOUR TIME:
-            </h3>
+            </h3>}
             <div className="input-div" style={isTimerOn? {display: "none"} : {display: "block"}}>
                 <input type="number" min="0" max="59" value={minutes} onChange={e => {setMinutes(e.target.value)}} className="input"/>
                 <label className="input">:</label>
@@ -74,12 +73,9 @@ function Timer({url}) {
             <Button btn_function={toggle} btn_label={isTimerOn? 'PAUSE' : 'START'}/>
             <Button btn_function={stop} btn_label='STOP' style={isTimerOn? {display:"block"} : {display:"none"}}/>
             <Button btn_function={addOneMinute} btn_label="+1'"/>
-            {/* <audio>
-                <source src={url} samesite="Secure"></source>
-            </audio> */}
-            {/* <div className="message-div" style={play? {display: "block"} : {display:"none"}}>
-                <h3 id="message-id">to turn off the music press STOP button</h3>
-            </div> */}
+            <audio className="audio-element">
+                <source src="https://api.coderrocketfuel.com/assets/pomodoro-times-up.mp3"></source>
+            </audio>
         </>
     )
 
