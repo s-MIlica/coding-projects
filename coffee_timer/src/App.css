@@ -9,3 +9,76 @@ input::-webkit-inner-spin-button {
 input[type=number] {
   -moz-appearance:textfield;
 }
+
+@import url('https://fonts.googleapis.com/css?family=Nunito:200&display=swap');
+
+html body {
+  padding: 0;
+  margin: 0;
+  max-height: 360px;
+  max-width: 640px;
+  background-color: black;
+}
+
+h3 {
+  width: 280px;
+  padding: 0 40px 0 40px;
+  margin-top: 220px;
+  margin-bottom: 20px;
+  margin-block-start: none;
+  margin-block-end: none;
+  /* margin: 25% 25%; */
+  text-align: center;
+  font-family: 'Nunito';
+  font-size: 1.8em;
+  color: rgb(238, 203, 247);
+  text-shadow: 0 0 8px rgb(183, 30, 221);
+}
+
+.input-div {
+  padding: 0 80px 0 100px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.input {
+  height: 43px;
+  text-align: center;
+  color: rgb(238, 203, 247);
+  text-shadow: 0 0 8px rgb(183, 30, 221);
+  background-color: black;
+  border-width: 0;
+  font-size: 35px;
+  font-family: 'Nunito';
+}
+
+.countdown {
+  font-size: 4.25em;
+  margin-block-start: none;
+  margin-block-end: none;
+  margin: 20px 67px;
+  color: rgb(238, 203, 247);
+  text-shadow: 0 0 8px rgb(183, 30, 221);
+  font-family: 'Nunito';
+}
+
+.button-div {
+  padding: 0 80px 0 100px;
+  /* display: inline-block; */
+}
+
+.button {
+  font-family: 'Nunito';
+  color: rgb(238, 203, 247);
+  text-shadow: 0 0 8px rgb(183, 30, 221);
+  background-color: rgb(0, 0, 0);
+  border-width: 0;
+  height: 50px;
+  width: 150px;
+  font-size: 40px;
+}
+
+.button:hover {
+  color: rgb(154, 255, 221);
+  text-shadow: 0 0 8 aquamarine;
+}

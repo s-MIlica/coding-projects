@@ -1,10 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import Button from './button';
+// import soundfile from '../assets/Autotune.mp3'
 
 function Timer() {
     const [minutes, setMinutes] = useState(0);
     const [seconds, setSeconds] = useState(0);
     const [isTimerOn, setIsTimerOn] = useState(false);
+    const audioEl = document.getElementsByClassName("audio-element")[0]
+    //const srs = soundfile;
+
     console.log('is timer on?', isTimerOn);
 
     function toggle() {
@@ -25,7 +29,6 @@ function Timer() {
 
     useEffect(() => {
         let tikTok = null;
-        const audioEl = document.getElementsByClassName("audio-element")[0]
         
         if (isTimerOn) {
             tikTok = setInterval(() => {
@@ -50,7 +53,7 @@ function Timer() {
         }
 
         return () => clearInterval(tikTok);
-    }, [isTimerOn, seconds, minutes])
+    }, [isTimerOn, seconds, minutes, audioEl])
 
     return (
         <>
@@ -67,14 +70,15 @@ function Timer() {
                 <label className="input">:</label>
                 <input type="number" min="0" max="59" value={seconds} onChange={e => {setSeconds(e.target.value)}} className="input"/>
             </div>
-            <div className="countdown">
+            <p className="countdown">
                 {minutes < 10? '0' + minutes : minutes}:{seconds < 10? '0' + seconds : seconds}
-            </div>
+            </p>
             <Button btn_function={toggle} btn_label={isTimerOn? 'PAUSE' : 'START'}/>
             <Button btn_function={stop} btn_label='STOP' style={isTimerOn? {display:"block"} : {display:"none"}}/>
             <Button btn_function={addOneMinute} btn_label="+1'"/>
             <audio className="audio-element">
-                <source src="https://api.coderrocketfuel.com/assets/pomodoro-times-up.mp3"></source>
+                <source src="https://api.coderrocketfuel.com/assets/pomodoro-times-up.mp3" samesite='secure'></source>
+                {/* <source src={srs}></source>*/}
             </audio>
         </>
     )
