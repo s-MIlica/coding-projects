@@ -12,6 +12,10 @@ input[type=number] {
 
 @import url('https://fonts.googleapis.com/css?family=Nunito:200&display=swap');
 
+* {
+  box-sizing: border-box;
+}
+
 html body {
   padding: 0;
   margin: 0;
@@ -20,10 +24,13 @@ html body {
   background-color: black;
 }
 
+@media only screen and (orientation: portrait) and (max-width: 600px) {
+
 h3 {
-  width: 280px;
-  padding: 0 40px 0 40px;
-  margin-top: 220px;
+  width: 100%;
+  padding: 0 30% 0 30%;
+  /* margin-top: 220px; */
+  margin-top: 25%;
   margin-bottom: 20px;
   margin-block-start: none;
   margin-block-end: none;
@@ -36,12 +43,14 @@ h3 {
 }
 
 .input-div {
-  padding: 0 80px 0 100px;
+  width: 100%;
+  padding: 0 0 0 28%;
   margin-bottom: 20px;
   margin-top: 20px;
 }
 
 .input {
+  width: 30%;
   height: 43px;
   text-align: center;
   color: rgb(238, 203, 247);
@@ -53,10 +62,12 @@ h3 {
 }
 
 .countdown {
-  font-size: 4.25em;
+  width: 80%;
+  font-size: 80px;
   margin-block-start: none;
   margin-block-end: none;
-  margin: 20px 67px;
+  margin: 20px 0;
+  padding: 0 20%;
   color: rgb(238, 203, 247);
   text-shadow: 0 0 8px rgb(183, 30, 221);
   font-family: 'Nunito';
@@ -81,4 +92,12 @@ h3 {
 .button:hover {
   color: rgb(154, 255, 221);
   text-shadow: 0 0 8 aquamarine;
+}
+
+}
+
+@media only screen and (orientation: landscape) and (min-width: 640px) {
+  h3 {
+    color: green;
+  }
 }

@@ -1,18 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import Button from './button';
-// import soundfile from '../assets/Autotune.mp3'
+import soundfile from '../assets/school-bell.mp3'
 
 function Timer() {
     const [minutes, setMinutes] = useState(0);
     const [seconds, setSeconds] = useState(0);
     const [isTimerOn, setIsTimerOn] = useState(false);
     const audioEl = document.getElementsByClassName("audio-element")[0]
-    //const srs = soundfile;
 
-    console.log('is timer on?', isTimerOn);
+    let time = new Date();
+
+    console.log('is timer on?', isTimerOn, time.toLocaleTimeString());
 
     function toggle() {
-        setIsTimerOn(!isTimerOn);
+        if (minutes >= 0 && seconds >= 0) {
+            setIsTimerOn(!isTimerOn);
+        } else {
+            alert("Negative numbers not allowed!");
+        }
     }
 
     function stop() {
@@ -77,8 +82,8 @@ function Timer() {
             <Button btn_function={stop} btn_label='STOP' style={isTimerOn? {display:"block"} : {display:"none"}}/>
             <Button btn_function={addOneMinute} btn_label="+1'"/>
             <audio className="audio-element">
-                <source src="https://api.coderrocketfuel.com/assets/pomodoro-times-up.mp3" samesite='secure'></source>
-                {/* <source src={srs}></source>*/}
+                {/* <source src="https://api.coderrocketfuel.com/assets/pomodoro-times-up.mp3" samesite='secure'></source> */}
+                <source src={soundfile}></source>
             </audio>
         </>
     )
