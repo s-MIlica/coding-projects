@@ -1,0 +1,31 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  max-width: 400px;
+}
+
+.label-div {
+  min-height: 135px;
+  background-color: black;
+  color: white;
+  max-width: 400px;
+}
+
+#display {
+  margin-block-start: 0em;
+  margin-block-end: 0em;
+  padding-top: 58px;
+  text-align: right;
+  font-size: 50px;
+}
+
+.button-div {
+  display: inline-block;
+  width: 100px;
+}
+
+.button {
+  width: 100px;
+  height: 80px;
+  font-size: 25px;
+}
