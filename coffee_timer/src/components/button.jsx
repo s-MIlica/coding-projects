@@ -6,7 +6,7 @@ function Button({btn_label, btn_function, style, btn_id}) {
     }
 
     return (
-        <div className="button-div" style={style}>
+        <div className="button-div" style={style} id={btn_id}>
             <button className="button" onClick={handleClick} id={btn_id}>{btn_label}</button>
         </div>
     )

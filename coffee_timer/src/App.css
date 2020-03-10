@@ -82,8 +82,6 @@ h3 {
   /* margin-top: 220px; */
   margin-top: 15%;
   font-size: 1.8em;
-  color: rgb(238, 203, 247);
-  text-shadow: 0 0 8px rgb(183, 30, 221);
 }
 
 .input-div {
@@ -167,6 +165,98 @@ h3 {
 
   }
 
+}
+
+@media only screen and (orientation: portrait) and (min-width: 765px) {
+
+  h3 {
+    font-size: 1.8em;
+    margin-left: 25%;
+  }
+
+  .countdown {
+    font-size: 5em;
+    margin-left: 40%;
+    margin-top: 30%;
+  }
+
+  .input-div {
+    width: 500px;
+    margin-left: 25%;
+    margin-top: 30%;
+  }
+
+  .input {
+    font-size: 5em;
+  }
+
+  .message {
+    font-size: 2.1em;
+    margin-left: 0%;
+    width: 700px;
+    max-width: 700px;
+    margin-top: 60px;
+    margin-bottom: 50px;
+  }
+
+  .button-div {
+    width: 300px;
+    margin-left: 50%;
+  }
+
+  #stop-reset {
+    margin-left: 30%;
+  }
+
+  .button {
+    font-size: 2.2em;
+  }
 
 }
 
+@media only screen and (orientation: landscape) and (min-width: 1020px) {
+
+  h3 {
+    font-size: 2.2em;
+    margin-left: 45%;
+    width: 450px;
+  }
+
+  .input-div {
+    width: 700px;
+    margin-left: 35%;
+    margin-bottom: 100px;
+  }
+
+  .input {
+    font-size: 6em;
+  }
+
+  .countdown {
+    font-size: 7em;
+    margin-left: 12%;
+  }
+
+  .message {
+    font-size: 3em;
+    margin-left: 30%;
+    width: 600px;
+  }
+
+  .button-div {
+    margin-left: 56%;
+    width: 850px;
+  }
+
+  .button {
+    font-size: 2em;
+  }
+
+
+
+
+
+
+
+
+}
