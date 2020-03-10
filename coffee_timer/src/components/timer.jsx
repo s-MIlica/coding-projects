@@ -24,6 +24,8 @@ function Timer() {
         if (isTimerOn) {
             setMinutes(0);
             setSeconds(0);
+            audioEl.pause();
+            audioEl.currentTime = 0;
             toggle();
         }
     }
@@ -46,11 +48,8 @@ function Timer() {
                     setSeconds(() => seconds - 1);
                 } else if (minutes === 0 && seconds === 0) {
                     clearInterval(tikTok);
-                    setMinutes(0);
-                    setSeconds(0);
-                    setIsTimerOn(false);
                     audioEl.play();
-                    alert('COFFEE IS READY!!!')
+                    // alert('COFFEE IS READY!!!')
                 }
             }, 1000);
         } else if (!isTimerOn && (minutes > 0 || seconds > 0)) {
@@ -75,11 +74,14 @@ function Timer() {
                 <label className="input">:</label>
                 <input type="number" min="0" max="59" value={seconds} onChange={e => {setSeconds(e.target.value)}} className="input"/>
             </div>
-            <p className="countdown">
+            <p className="countdown" style={isTimerOn? {color: 'rgb(238, 203, 247)', textShadow: '0 0 8px rgb(183, 30, 221)'} : {color: 'black', textShadow: 'none'}}>
                 {minutes < 10? '0' + minutes : minutes}:{seconds < 10? '0' + seconds : seconds}
             </p>
+            <p className="message" style={(isTimerOn && minutes===0 && seconds===0)? {display:"block"} : {display:"none"}}>
+                YOUR COFFE IS READY!!!
+            </p>
             <Button btn_function={toggle} btn_label={isTimerOn? 'PAUSE' : 'START'}/>
-            <Button btn_function={stop} btn_label='STOP' style={isTimerOn? {display:"block"} : {display:"none"}}/>
+            <Button btn_id="stop-resest" btn_function={stop} btn_label='STOP/RESET' style={isTimerOn? {display:"block"} : {display:"none"}}/>
             <Button btn_function={addOneMinute} btn_label="+1'"/>
             <audio className="audio-element">
                 {/* <source src="https://api.coderrocketfuel.com/assets/pomodoro-times-up.mp3" samesite='secure'></source> */}
