@@ -7,14 +7,12 @@ function App() {
   const [display, setDisplay] = useState('');
 
 function buttons_numbers(e) {
-  console.log(e.target.value);
   e.persist();
   setDisplay(() => display + e.target.value);
 }
 
   
 function buttons_value(e) {
-  console.log(e.target.value);
   e.persist();
   setDisplay(() => display + e.target.value);
 }
